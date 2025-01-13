@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
+import { AnimeSearch } from './models/Anime';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     let data = this.apiService.getInfo();
     data.subscribe((d) => {
-      console.log(d);
+      console.log(d.data);
     })
   }
 }
