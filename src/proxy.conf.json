@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://api.jikan.moe/v4",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
