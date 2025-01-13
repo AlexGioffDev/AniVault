@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+.shadow-card {
+    box-shadow: 15px 10px 20px rgba(0, 0, 0, .75);
+}

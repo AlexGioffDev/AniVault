@@ -11,6 +11,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getInfo(): Observable<AnimeSearch> {
-    return this.http.get<AnimeSearch>('https://api.jikan.moe/v4/anime')
+    return this.http.get<AnimeSearch>('https://api.jikan.moe/v4/anime?type=tv')
   }
 }

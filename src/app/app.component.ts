@@ -1,23 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AnimeSearch } from './models/Anime';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'AniVault';
-
-  constructor(private apiService: ApiService){}
-
-  ngOnInit(): void {
-    let data = this.apiService.getInfo();
-    data.subscribe((d) => {
-      console.log(d.data);
-    })
-  }
 }

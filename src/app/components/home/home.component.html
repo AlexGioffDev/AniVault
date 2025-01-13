@@ -1,0 +1,40 @@
+@if (isLoading) {
+<p>Is Loading</p>
+} @else {
+<div class="grid grid-cols-3 gap-x-4 gap-y-12 p-4 pb-8 overflow-y-auto">
+  @for (anime of animes; track $index) {
+  <div
+    class="w-[350px] h-[500px] relative rounded-2xl overflow-hidden border-stone-800 border shadow-card"
+  >
+    <img
+      src="{{ anime.images['jpg']['large_image_url'] }}"
+      class="w-full h-full object-fill aspect-square"
+    />
+    <div
+      class="absolute w-full p-4 bottom-0 text-stone-200 flex justify-between items-center"
+    >
+      <div class="flex gap-x-4 items-center relative">
+        <p
+          class="flex items-center justify-center w-10 h-10 bg-stone-200 text-pink-800 rounded-full uppercase font-semibold text-[14px] z-10 border-t-2 border-b-2 border-l-2 border-pink-800"
+        >
+          {{ anime.score }}
+        </p>
+        <p
+          class="uppercase text-pink-800 text-[18px] font-bold bg-stone-200 px-3 rounded-tr-2xl rounded-br-2xl absolute left-8 w-60 z-[9] border-pink-800 border-2"
+        >
+          {{
+            anime.title.length > 15
+              ? anime.title.slice(0, 15) + "..."
+              : anime.title
+          }}
+          <br />
+        </p>
+      </div>
+    </div>
+    <div class="absolute top-4 right-6">
+      <p class="text-pink-800">More</p>
+    </div>
+  </div>
+  }
+</div>
+}
