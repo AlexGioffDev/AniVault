@@ -1,0 +1,23 @@
+<div
+  class="w-[300px] h-[400px] border-2 rounded-2xl overflow-hidden border-pink-800 shadow-card relative cursor-pointer"
+>
+  <img
+    src="{{ anime.images['jpg']['large_image_url'] }}"
+    alt="{{ anime.title }} + ' cover'"
+    class="w-full h-full"
+  />
+  <div class="absolute bottom-0 left-0 right-0 flex items-center py-3">
+    <p
+      class="w-14 h-14 p-4 flex justify-center items-center font-bold text-[18px] bg-stone-100 text-pink-700 border-2 border-pink-700 rounded-full z-20 border-r-0"
+    >
+      {{ anime.score }}
+    </p>
+    <p
+      class="absolute flex items-center justify-center w-[80%] h-10 left-7 border-2 border-pink-700 bg-stone-100 rounded-tr-2xl rounded-br-2xl text-[18px] font-bold text-pink-700"
+    >
+      {{
+        anime.title.length > 10 ? anime.title.slice(0, 10) + "..." : anime.title
+      }}
+    </p>
+  </div>
+</div>
