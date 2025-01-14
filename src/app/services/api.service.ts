@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getInfo(page: number): Observable<AnimeSearch> {
+  getTopAnime(page: number): Observable<AnimeSearch> {
     return this.http.get<AnimeSearch>(`https://api.jikan.moe/v4/top/anime?type=tv&order_by=score&page=${page}`)
   }
 }
