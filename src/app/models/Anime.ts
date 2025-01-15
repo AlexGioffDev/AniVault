@@ -1,8 +1,8 @@
 export interface AnimeData {
-    data: Data;
+    data: AnimeDataInfo;
 }
 
-export interface Data {
+export interface AnimeDataInfo {
     mal_id:          number;
     url:             string;
     images:          { [key: string]: Image };

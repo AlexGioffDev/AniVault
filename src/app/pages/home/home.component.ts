@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { AnimeSearch } from '../../models/AnimeSearch';
-import { CardAnimeComponent } from '../card-anime/card-anime.component';
+import { CardAnimeComponent } from '../../components/card-anime/card-anime.component';
 
 @Component({
   selector: 'app-home',
