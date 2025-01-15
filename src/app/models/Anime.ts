@@ -1,9 +1,8 @@
-export interface AnimeSearch {
-    pagination: Pagination;
-    data:       Datum[];
+export interface AnimeData {
+    data: Data;
 }
 
-export interface Datum {
+export interface Data {
     mal_id:          number;
     url:             string;
     images:          { [key: string]: Image };
@@ -11,17 +10,17 @@ export interface Datum {
     approved:        boolean;
     titles:          Title[];
     title:           string;
-    title_english:   null | string;
+    title_english:   string;
     title_japanese:  string;
     title_synonyms:  string[];
-    type:            DatumType;
-    source:          Source;
-    episodes:        number | null;
-    status:          Status;
+    type:            string;
+    source:          string;
+    episodes:        number;
+    status:          string;
     airing:          boolean;
     aired:           Aired;
     duration:        string;
-    rating:          Rating;
+    rating:          string;
     score:           number;
     scored_by:       number;
     rank:            number;
@@ -30,21 +29,25 @@ export interface Datum {
     favorites:       number;
     synopsis:        string;
     background:      string;
-    season:          Season | null;
-    year:            number | null;
+    season:          string;
+    year:            number;
     broadcast:       Broadcast;
     producers:       Demographic[];
     licensors:       Demographic[];
     studios:         Demographic[];
     genres:          Demographic[];
     explicit_genres: any[];
-    themes:          Demographic[];
+    themes:          any[];
     demographics:    Demographic[];
+    relations:       Relation[];
+    theme:           Theme;
+    external:        External[];
+    streaming:       External[];
 }
 
 export interface Aired {
     from:   Date;
-    to:     Date | null;
+    to:     Date;
     prop:   Prop;
     string: string;
 }
@@ -55,31 +58,33 @@ export interface Prop {
 }
 
 export interface From {
-    day:   number | null;
-    month: number | null;
-    year:  number | null;
+    day:   number;
+    month: number;
+    year:  number;
 }
 
 export interface Broadcast {
-    day:      null | string;
-    time:     null | string;
-    timezone: Timezone | null;
-    string:   null | string;
-}
-
-export enum Timezone {
-    AsiaTokyo = "Asia/Tokyo",
+    day:      string;
+    time:     string;
+    timezone: string;
+    string:   string;
 }
 
 export interface Demographic {
     mal_id: number;
-    type:   DemographicType;
+    type:   Type;
     name:   string;
     url:    string;
 }
 
-export enum DemographicType {
+export enum Type {
     Anime = "anime",
+    Manga = "manga",
+}
+
+export interface External {
+    name: string;
+    url:  string;
 }
 
 export interface Image {
@@ -88,74 +93,32 @@ export interface Image {
     large_image_url: string;
 }
 
-export enum Rating {
-    PG13Teens13OrOlder = "PG-13 - Teens 13 or older",
-    PGChildren = "PG - Children",
-    R17ViolenceProfanity = "R - 17+ (violence & profanity)",
-    RMildNudity = "R+ - Mild Nudity",
+export interface Relation {
+    relation: string;
+    entry:    Demographic[];
 }
 
-export enum Season {
-    Fall = "fall",
-    Spring = "spring",
-    Summer = "summer",
-}
-
-export enum Source {
-    LightNovel = "Light novel",
-    Manga = "Manga",
-    Original = "Original",
-}
-
-export enum Status {
-    CurrentlyAiring = "Currently Airing",
-    FinishedAiring = "Finished Airing",
+export interface Theme {
+    openings: string[];
+    endings:  string[];
 }
 
 export interface Title {
-    type:  TitleType;
+    type:  string;
     title: string;
 }
 
-export enum TitleType {
-    Default = "Default",
-    English = "English",
-    French = "French",
-    German = "German",
-    Japanese = "Japanese",
-    Spanish = "Spanish",
-    Synonym = "Synonym",
-}
-
 export interface Trailer {
-    youtube_id: null | string;
-    url:        null | string;
-    embed_url:  null | string;
+    youtube_id: string;
+    url:        string;
+    embed_url:  string;
     images:     Images;
 }
 
 export interface Images {
-    image_url:         null | string;
-    small_image_url:   null | string;
-    medium_image_url:  null | string;
-    large_image_url:   null | string;
-    maximum_image_url: null | string;
-}
-
-export enum DatumType {
-    Movie = "Movie",
-    Tv = "TV",
-}
-
-export interface Pagination {
-    last_visible_page: number;
-    has_next_page:     boolean;
-    current_page:      number;
-    items:             Items;
-}
-
-export interface Items {
-    count:    number;
-    total:    number;
-    per_page: number;
+    image_url:         string;
+    small_image_url:   string;
+    medium_image_url:  string;
+    large_image_url:   string;
+    maximum_image_url: string;
 }

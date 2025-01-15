@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Datum } from '../../models/Anime';
+import { Datum } from '../../models/AnimeSearch';
 
 @Component({
   selector: 'app-card-anime',

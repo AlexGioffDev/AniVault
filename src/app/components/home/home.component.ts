@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { AnimeSearch } from '../../models/Anime';
+import { AnimeSearch } from '../../models/AnimeSearch';
 import { CardAnimeComponent } from '../card-anime/card-anime.component';
 
 @Component({
