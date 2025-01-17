@@ -9,6 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './card-anime.component.css'
 })
 export class CardAnimeComponent {
-
   @Input() anime!: Datum;
 }

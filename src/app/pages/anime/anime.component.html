@@ -1,7 +1,8 @@
+@if (isLoading) {
+<p>Loading...</p>
+} @else {
 <div class="grid grid-cols-3 gap-x-2 w-full h-[80vh]">
-  <div
-    class="flex flex-col col-span-1 gap-y-4 w-full max-h-[600px] p-3 items-center"
-  >
+  <div class="flex flex-col col-span-1 gap-y-1 w-full h-full p-3 items-center">
     <div class="relative">
       <img
         src="{{ anime!.images['jpg']['large_image_url'] }}"
@@ -28,12 +29,37 @@
           <p>{{ anime.episodes }}</p>
         </div>
       </div>
+      <div class="flex justify-between items-center">
+        <p>Season:</p>
+        <div class="flex flex-col">
+          <p class="capitalize">{{ anime.season }}</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <p>Studios:</p>
+        <div class="flex gap-x-1">
+          @for (studio of anime.studios.slice(0,3 ); track studio.mal_id) {
+          <p>{{ studio.name }}</p>
+          }
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <p>Rating:</p>
+        <div class="flex flex-col">
+          <p class="capitalize">{{ anime.rating }}</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <div
-    class="flex flex-col col-span-2 gap-y-4 w-full h-[300px] p-3 overflow-y-auto"
+    class="flex flex-col col-span-2 gap-y-4 w-full h-full bg-amber-300 p-3 overflow-y-auto"
   >
-    other stuff
+    <div>
+      <h3 class="font-bold text-2xl tracking-tight uppercase">Plot</h3>
+      <p class="text-lg font-light leading-6">{{ anime.synopsis }}</p>
+    </div>
   </div>
 </div>
+
+}
