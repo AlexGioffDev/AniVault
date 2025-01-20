@@ -1,9 +1,9 @@
 export interface AnimeReviews {
     pagination: Pagination;
-    data:       Data[];
+    data:       AnimeReviewsData[];
 }
 
-export interface Data {
+export interface AnimeReviewsData {
     mal_id:           number;
     url:              string;
     type:             Type;

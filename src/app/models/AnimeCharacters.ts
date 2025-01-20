@@ -1,8 +1,8 @@
 export interface AnimeCharacters {
-    data: Data[];
+    data: AnimeCharactersInfo[];
 }
 
-export interface Data {
+export interface AnimeCharactersInfo {
     character:    Character;
     role:         Role;
     favorites:    number;
