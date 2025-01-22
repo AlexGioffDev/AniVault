@@ -58,6 +58,10 @@
         <p class="font-semibold text-stone-200  text-[14px]">Episodes:</p>
         <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.episodes}}</p>
       </div>
+      <div class="flex  items-center justify-between ">
+        <p class="font-semibold text-stone-200  text-[14px]">Duration:</p>
+        <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.duration}}</p>
+      </div>
       <div class="flex items-center justify-between ">
         <p class="font-semibold text-stone-200  text-[14px]">Studios:</p>
         <p class="font-bold text-pink-700 text-[14px]">
@@ -95,30 +99,56 @@
       <h1 class="text-pink-600 uppercase text-4xl font-black">{{animeInfo.anime?.title}}</h1>
       <h4 class="text-gray-600 text-sm">{{animeInfo.anime?.title_japanese}}</h4>
     </div>
+    <!-- Plot-->
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Plot</h1>
       <p class="text-stone-100 text-justify">{{animeInfo.anime?.synopsis}}</p>
     </div>
+    <!-- Characters -->
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Characters</h1>
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
       @for (character of sortedCharacters; track $index) {
-        <div class="bg-stone-100 relative min-w-[400px] min-h-[100px] h-[100px] rounded-[14px] overflow-hidden flex justify-between gap-x-5">
+        <div class="bg-stone-100  min-w-[250px] min-h-[250px]  rounded-[14px] flex justify-between gap-x-5 border-2 border-pink-700 overflow-hidden relative">
           <img
             src="{{character.character.images['webp']['image_url']}}"
-            class=" w-[180px] h-[100px] object-cover"
+            class=" w-[250px] h-[250px] object-cover"
           />
-          <div class="py-5 px-5 flex flex-col">
-            <p class=" text-pink-700 font-black uppercase self-end text-[14px]">{{character.character.name}}</p>
-            <div class="flex self-end items-center flex-row-reverse gap-x-2">
-              <img src="{{character.voice_actors[0].person.images['jpg']['image_url']}}" class="w-14 h-14 rounded-full object-cover border border-pink-600" />
-              <p class="uppercase text-stone-500 text-[8px]">{{character.voice_actors[0].person.name}}</p>
+          <div class="bg-stone-200 absolute bottom-2 left-2  p-2 flex items-center w-[90%] gap-x-2 rounded-[14px] border-2 border-pink-700">
+            <div class="w-14 h-14 p-1  flex items-center justify-center rounded-full  ">
+              <img
+              src="{{character.voice_actors[0].person.images['jpg']['image_url']}}"
+              class=" w-full h-full  object-cover rounded-full border-2 border-pink-700"
+            />
+            
+            </div>
+            <div class="flex flex-col gap-y-0.5">
+              <p class="text-[12px] uppercase font-black text-pink-800">{{character.character.name}}</p>
+              <small class="text-gray-600 font-semibold">{{character.voice_actors[0].person.name}}</small>
             </div>
           </div>
         </div>
       }
     </div>
     </div>
+    <!-- Reviews -->
+    @if (sortedReviews!.length > 0) {
+      <div class="space-y-1">
+        <h1 class="text-pink-600 uppercase text-2xl font-semibold">Reviews</h1>
+        <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
+          @for (review of sortedReviews; track $index) {
+            <div class="min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100">
+              <p class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-5xl rounded-bl-2xl">{{review.score}}</p>
+              <p class="text-stone-100 tracking-widest text-left w-[70%] text-sm whitespace-break-spaces  overflow-x-hidden h-[70%] overflow-y-auto">{{review.review}}</p>
+              <div class="absolute bottom-2 right-4 flex flex-row-reverse items-center gap-x-4">
+                <img src="{{review.user.images['jpg']['image_url']}}" class="object-cover w-12 h-12 rounded-full border-2 border-stone-100"/>
+                <p class="font-semibold text-stone-100 text-[14px]">{{review.user.username}}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
   </div>
   <!-- End Right Side-->
 </div>

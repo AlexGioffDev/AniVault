@@ -64,6 +64,18 @@ export class AnimeComponent implements OnInit {
   }
 
   get sortedCharacters() {
-    return this.animeInfo.characters?.sort((a, b) => b.favorites - a.favorites).slice(0, 15);
+    return this.animeInfo.characters?.filter(a => a.voice_actors.length > 0).sort((a, b) => b.favorites - a.favorites).slice(0, 15);
+  }
+
+  get sortedReviews() {
+   if(this.animeInfo.reviews == undefined || this.animeInfo.reviews.length < 0){
+    return null;
+   }
+
+   
+    return this.animeInfo.reviews
+    .filter((a) => !a.is_spoiler && a.user.images)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 15);
   }
 }
