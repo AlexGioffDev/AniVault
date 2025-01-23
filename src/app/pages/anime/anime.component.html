@@ -7,84 +7,89 @@
     <div class="relative">
       <img
         src="{{ animeInfo!.anime!.images['jpg']['large_image_url'] }}"
-        class="rounded-lg border-2 border-pink-600 object-cover w-full  h-[500px]"
+        class="rounded-lg border-2 border-pink-600 object-cover w-full h-[500px]"
       />
       <p
         class="absolute top-2 right-4 text-2xl font-semibold w-10 h-10 bg-stone-100 text-pink-800 flex items-center justify-center rounded-full border-2 border-pink-600"
       >
         {{ animeInfo!.anime!.score.toFixed(0) }}
       </p>
-      @switch (animeInfo!.anime?.rating) { 
-        @case("G - All Ages"){
-          <p
-            class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-          >
-            G
-          </p>
-        } 
-        @case("PG - Children"){
-          <p
-            class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-          >
-            PG
-          </p>
-        } 
-        @case ("PG-13 - Teens 13 or older") {
-          <p
-            class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-          >
-            PG+
-          </p>
-        }
-        @case ("R - 17+ (violence & profanity)") {
-          <p
-            class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-          >
-            R-17
-          </p>
-        }
-        @case ("R+ - Mild Nudity") {
-          <p
-            class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-          >
-            R
-          </p>
-        }
-
-    }
-    </div>
-    <div class="flex flex-col w-full justify-center self-start px-5 gap-y-2 mt-2">
-      <div class="flex  items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Episodes:</p>
-        <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.episodes}}</p>
-      </div>
-      <div class="flex  items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Duration:</p>
-        <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.duration}}</p>
-      </div>
-      <div class="flex items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Studios:</p>
-        <p class="font-bold text-pink-700 text-[14px]">
-        @for (studio of animeInfo.anime?.studios?.slice(0, 3); track $index) {
-          {{studio.name}}
-        }
+      @switch (animeInfo!.anime?.rating) { @case("G - All Ages"){
+      <p
+        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
+      >
+        G
       </p>
+      } @case("PG - Children"){
+      <p
+        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
+      >
+        PG
+      </p>
+      } @case ("PG-13 - Teens 13 or older") {
+      <p
+        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
+      >
+        PG+
+      </p>
+      } @case ("R - 17+ (violence & profanity)") {
+      <p
+        class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
+      >
+        R-17
+      </p>
+      } @case ("R+ - Mild Nudity") {
+      <p
+        class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
+      >
+        R
+      </p>
+      } }
+    </div>
+    <div
+      class="flex flex-col w-full justify-center self-start px-5 gap-y-2 mt-2"
+    >
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Episodes:</p>
+        <p class="font-bold text-pink-700 text-[14px]">
+          {{ animeInfo!.anime?.episodes }}
+        </p>
       </div>
-      <div class="flex  items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Type:</p>
-        <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.type}}</p>
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Duration:</p>
+        <p class="font-bold text-pink-700 text-[14px]">
+          {{ animeInfo!.anime?.duration }}
+        </p>
       </div>
-      <div class="flex  items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Source:</p>
-        <p class="font-bold text-pink-700 text-[14px]">{{animeInfo!.anime?.source}}</p>
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Studios:</p>
+        <p class="font-bold text-pink-700 text-[14px]">
+          @for (studio of animeInfo.anime?.studios?.slice(0, 3); track $index) {
+          {{ studio.name }}
+          }
+        </p>
       </div>
-      <div class="flex  items-center justify-between ">
-        <p class="font-semibold text-stone-200  text-[14px]">Genres:</p>
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Type:</p>
+        <p class="font-bold text-pink-700 text-[14px]">
+          {{ animeInfo!.anime?.type }}
+        </p>
+      </div>
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Source:</p>
+        <p class="font-bold text-pink-700 text-[14px]">
+          {{ animeInfo!.anime?.source }}
+        </p>
+      </div>
+      <div class="flex items-center justify-between">
+        <p class="font-semibold text-stone-200 text-[14px]">Genres:</p>
         <div class="space-x-2">
           @for (genre of animeInfo.anime?.genres?.slice(0,2); track $index) {
-            <p class="inline text-[11px] uppercase font-bold p-1 rounded-[4px] bg-pink-600 text-stone-200">
-              {{genre.name}}
-            </p>
+          <p
+            class="inline text-[11px] uppercase font-bold p-1 rounded-[4px] bg-pink-600 text-stone-200"
+          >
+            {{ genre.name }}
+          </p>
           }
         </div>
       </div>
@@ -93,62 +98,111 @@
   <!-- End Left Side -->
   <!-- Right Side -->
   <div
-    class="flex flex-col col-span-2 gap-y-5 w-full h-full p-3 overflow-y-auto "
+    class="flex flex-col col-span-2 gap-y-5 w-full h-full p-3 overflow-y-auto"
   >
-    <div class="">
-      <h1 class="text-pink-600 uppercase text-4xl font-black">{{animeInfo.anime?.title}}</h1>
-      <h4 class="text-gray-600 text-sm">{{animeInfo.anime?.title_japanese}}</h4>
+    <div class="space-y-1">
+      <h1 class="text-pink-600 uppercase text-4xl font-black">
+        {{ animeInfo.anime?.title }}
+      </h1>
+      <h4 class="text-gray-600 text-sm">
+        {{ animeInfo.anime?.title_japanese }}
+      </h4>
     </div>
     <!-- Plot-->
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Plot</h1>
-      <p class="text-stone-100 text-justify">{{animeInfo.anime?.synopsis}}</p>
+      <p class="text-stone-100 text-justify">{{ animeInfo.anime?.synopsis }}</p>
     </div>
     <!-- Characters -->
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Characters</h1>
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
-      @for (character of sortedCharacters; track $index) {
-        <div class="bg-stone-100  min-w-[250px] min-h-[250px]  rounded-[14px] flex justify-between gap-x-5 border-2 border-pink-700 overflow-hidden relative">
+        @for (character of sortedCharacters; track $index) {
+        <div
+          class="bg-stone-100 min-w-[250px] min-h-[250px] rounded-[14px] flex justify-between gap-x-5 border-2 border-pink-700 overflow-hidden relative"
+        >
           <img
-            src="{{character.character.images['webp']['image_url']}}"
-            class=" w-[250px] h-[250px] object-cover"
+            src="{{ character.character.images['webp']['image_url'] }}"
+            class="w-[250px] h-[250px] object-cover"
           />
-          <div class="bg-stone-200 absolute bottom-2 left-2  p-2 flex items-center w-[90%] gap-x-2 rounded-[14px] border-2 border-pink-700">
-            <div class="w-14 h-14 p-1  flex items-center justify-center rounded-full  ">
+          <div
+            class="bg-stone-200 absolute bottom-2 left-2 p-2 flex items-center w-[90%] gap-x-2 rounded-[14px] border-2 border-pink-700"
+          >
+            <div
+              class="w-14 h-14 p-1 flex items-center justify-center rounded-full"
+            >
               <img
-              src="{{character.voice_actors[0].person.images['jpg']['image_url']}}"
-              class=" w-full h-full  object-cover rounded-full border-2 border-pink-700"
-            />
-            
+                src="{{
+                  character.voice_actors[0].person.images['jpg']['image_url']
+                }}"
+                class="w-full h-full object-cover rounded-full border-2 border-pink-700"
+              />
             </div>
             <div class="flex flex-col gap-y-0.5">
-              <p class="text-[12px] uppercase font-black text-pink-800">{{character.character.name}}</p>
-              <small class="text-gray-600 font-semibold">{{character.voice_actors[0].person.name}}</small>
+              <p class="text-[12px] uppercase font-black text-pink-800">
+                {{ character.character.name }}
+              </p>
+              <small class="text-gray-600 font-semibold">{{
+                character.voice_actors[0].person.name
+              }}</small>
             </div>
           </div>
         </div>
-      }
-    </div>
+        }
+      </div>
     </div>
     <!-- Reviews -->
     @if (sortedReviews!.length > 0) {
-      <div class="space-y-1">
-        <h1 class="text-pink-600 uppercase text-2xl font-semibold">Reviews</h1>
-        <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
-          @for (review of sortedReviews; track $index) {
-            <div class="min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100">
-              <p class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-5xl rounded-bl-2xl">{{review.score}}</p>
-              <p class="text-stone-100 tracking-widest text-left w-[70%] text-sm whitespace-break-spaces  overflow-x-hidden h-[70%] overflow-y-auto">{{review.review}}</p>
-              <div class="absolute bottom-2 right-4 flex flex-row-reverse items-center gap-x-4">
-                <img src="{{review.user.images['jpg']['image_url']}}" class="object-cover w-12 h-12 rounded-full border-2 border-stone-100"/>
-                <p class="font-semibold text-stone-100 text-[14px]">{{review.user.username}}</p>
-              </div>
-            </div>
-          }
+    <div class="space-y-1">
+      <h1 class="text-pink-600 uppercase text-2xl font-semibold">Reviews</h1>
+      <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
+        @for (review of sortedReviews; track $index) {
+        <div
+          class="min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100"
+        >
+          <p
+            class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-5xl rounded-bl-2xl"
+          >
+            {{ review.score }}
+          </p>
+          <p
+            class="text-stone-100 tracking-widest text-left w-[70%] text-sm whitespace-break-spaces overflow-x-hidden h-[70%] overflow-y-auto"
+          >
+            {{ review.review }}
+          </p>
+          <div
+            class="absolute bottom-2 right-4 flex flex-row-reverse items-center gap-x-4"
+          >
+            <img
+              src="{{ review.user.images['jpg']['image_url'] }}"
+              class="object-cover w-12 h-12 rounded-full border-2 border-stone-100"
+            />
+            <p class="font-semibold text-stone-100 text-[14px]">
+              {{ review.user.username }}
+            </p>
+          </div>
         </div>
+        }
       </div>
+    </div>
     }
+    <!-- Recommendations -->
+    <div class="space-y-1">
+      <h1 class="text-pink-600 uppercase text-2xl font-semibold">Suggestion</h1>
+      <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
+        @for (suggestion of animeInfo.recommendations; track $index) {
+        <div
+          class="min-w-[250px] min-h-[350px] overflow-hidden border-2 border-pink-700 cursor-pointer"
+          [routerLink]="['/anime', suggestion.entry.mal_id]"
+        >
+          <img
+            src="{{ suggestion.entry.images['jpg']['large_image_url'] }}"
+            class="w-[250px] h-[350px] object-cover"
+          />
+        </div>
+        }
+      </div>
+    </div>
   </div>
   <!-- End Right Side-->
 </div>

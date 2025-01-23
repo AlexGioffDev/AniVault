@@ -4,13 +4,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { AnimeComponent } from './pages/anime/anime.component';
 
 export const routes: Routes = [
-    {
-        path: "",
-        component: HomeComponent,
-    },
-    {
-        path: "anime/:id",
-        component: AnimeComponent   
-    }
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'anime/:id',
+    component: AnimeComponent,
+  },
 ];
-
