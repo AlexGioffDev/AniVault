@@ -13,7 +13,7 @@ import { AnimeRecommendations } from '../models/AnimeRecommendations';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getTopAnime(page: number, type?: string): Observable<AnimeSearch> {
+  getTopAnime(page: number, type?: string | null): Observable<AnimeSearch> {
     const animeType = type || 'tv';
 
     return this.http.get<AnimeSearch>(

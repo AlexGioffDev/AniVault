@@ -1,6 +1,31 @@
 @import "tailwindcss";
 
+@keyframes custom-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
 
-.shadow-card {
-    box-shadow: 15px 10px 20px rgba(163, 0, 76,0.4 );
+.animate-custom-bounce {
+  animation: custom-bounce 1s infinite;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
 }

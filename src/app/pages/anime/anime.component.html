@@ -1,5 +1,5 @@
 @if (isLoading) {
-<p>Loading...</p>
+<app-loading></app-loading>
 } @else {
 <div class="grid grid-cols-3 gap-x-2 w-full h-[80vh]">
   <!-- Left Side-->
@@ -114,6 +114,7 @@
       <p class="text-stone-100 text-justify">{{ animeInfo.anime?.synopsis }}</p>
     </div>
     <!-- Characters -->
+    @if (sortedCharacters && sortedCharacters.length > 0) {
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Characters</h1>
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
@@ -151,8 +152,9 @@
         }
       </div>
     </div>
+    }
     <!-- Reviews -->
-    @if (sortedReviews!.length > 0) {
+    @if (sortedReviews && sortedReviews.length > 0) {
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Reviews</h1>
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
@@ -187,6 +189,7 @@
     </div>
     }
     <!-- Recommendations -->
+    @if (animeInfo.recommendations && animeInfo.recommendations.length > 0) {
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Suggestion</h1>
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
@@ -203,8 +206,8 @@
         }
       </div>
     </div>
+    }
   </div>
   <!-- End Right Side-->
 </div>
-
 }

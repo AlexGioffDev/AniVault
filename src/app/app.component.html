@@ -6,9 +6,34 @@
   </a>
   <nav>
     <ul class="flex items-center gap-x-4 text-stone-100">
-      <li>Movie</li>
-      <li>OVA</li>
-      <li>Special</li>
+      <li
+        [routerLink]="['']"
+        [queryParams]="{ type: 'tv' }"
+        class="cursor-pointer text-lg text-pink-700 uppercase font-ligh hover:text-[20px] hover:text-stone-100 transition-all duration-300 ease-in-out"
+      >
+        TV
+      </li>
+      <li
+        [routerLink]="['']"
+        [queryParams]="{ type: 'movie' }"
+        class="cursor-pointer text-lg text-pink-700 uppercase font-ligh hover:text-[20px] hover:text-stone-100 transition-all duration-300 ease-in-out"
+      >
+        Movie
+      </li>
+      <li
+        [routerLink]="['']"
+        [queryParams]="{ type: 'ova' }"
+        class="cursor-pointer text-lg text-pink-700 uppercase font-ligh hover:text-[20px] hover:text-stone-100 transition-all duration-300 ease-in-out"
+      >
+        OVA
+      </li>
+      <li
+        [routerLink]="['']"
+        [queryParams]="{ type: 'special' }"
+        class="cursor-pointer text-lg text-pink-700 uppercase font-ligh hover:text-[20px] hover:text-stone-100 transition-all duration-300 ease-in-out"
+      >
+        Special
+      </li>
     </ul>
   </nav>
 </header>
