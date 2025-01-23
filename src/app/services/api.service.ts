@@ -13,9 +13,11 @@ import { AnimeRecommendations } from '../models/AnimeRecommendations';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getTopAnime(page: number): Observable<AnimeSearch> {
+  getTopAnime(page: number, type?: string): Observable<AnimeSearch> {
+    const animeType = type || 'tv';
+
     return this.http.get<AnimeSearch>(
-      `https://api.jikan.moe/v4/top/anime?type=tv&order_by=score&page=${page}`
+      `https://api.jikan.moe/v4/top/anime?type=${animeType}&order_by=score&page=${page}`
     );
   }
 
