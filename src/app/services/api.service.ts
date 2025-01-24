@@ -6,6 +6,7 @@ import { AnimeData } from '../models/Anime';
 import { AnimeCharacters } from '../models/AnimeCharacters';
 import { AnimeReviews } from '../models/AnimeReviews';
 import { AnimeRecommendations } from '../models/AnimeRecommendations';
+import { AnimeRelations } from '../models/AnimeRelations';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +43,12 @@ export class ApiService {
   getAnimeRecommendations(id: number): Observable<AnimeRecommendations> {
     return this.http.get<AnimeRecommendations>(
       `https://api.jikan.moe/v4/anime/${id}/recommendations`
+    );
+  }
+
+  getAnimeRelations(id: number): Observable<AnimeRelations> {
+    return this.http.get<AnimeRelations>(
+      `https://api.jikan.moe/v4/anime/${id}/relations`
     );
   }
 }

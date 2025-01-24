@@ -188,6 +188,26 @@
       </div>
     </div>
     }
+    <!-- Relations -->
+    @if (relationsPrequel && relationsPrequel.length > 0) {
+    <div class="space-y-1">
+      <h1 class="text-pink-600 uppercase text-2xl font-semibold">Relations</h1>
+      <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
+        @for (relations of relationsPrequel; track $index) { @for (entry of
+        relations.entry; track $index) {
+        <div
+          class="min-w-[300px] min-h-[120px] overflow-hidden border-2 border-pink-700 cursor-pointer flex flex-col gap-y-2 justify-center items-center rounded-3xl bg-stone-200"
+          [routerLink]="['/anime', entry.mal_id]"
+        >
+          <p class="text-pink-600 text-sm">{{ relations.relation }}</p>
+          <p class="text-pink-600 uppercase font-black text-[15px]">
+            {{ entry.name.slice(0, 30) }}
+          </p>
+        </div>
+        } }
+      </div>
+    </div>
+    }
     <!-- Recommendations -->
     @if (animeInfo.recommendations && animeInfo.recommendations.length > 0) {
     <div class="space-y-1">
