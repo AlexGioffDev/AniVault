@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     if (this.nextPage) {
       this.page++;
       this.isLoading = true;
-      this.getAnime(this.page);
+      this.getAnime(this.page, this.type);
     }
   }
 
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     if (this.page > 1) {
       this.page--;
       this.isLoading = true;
-      this.getAnime(this.page);
+      this.getAnime(this.page, this.type);
     }
   }
 }

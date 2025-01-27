@@ -1,7 +1,9 @@
 @if (isLoading) {
 <app-loading></app-loading>
 } @else {
-<div class="grid grid-cols-3 gap-x-2 w-full h-[80vh]">
+<div
+  class="grid grid-cols-1 lg:grid-cols-3 gap-x-2 w-full h-[80vh] overflow-y-auto"
+>
   <!-- Left Side-->
   <div class="flex flex-col col-span-1 gap-y-1 w-full h-full p-3 items-center">
     <div class="relative">
@@ -47,7 +49,7 @@
       } }
     </div>
     <div
-      class="flex flex-col w-full justify-center self-start px-5 gap-y-2 mt-2"
+      class="hidden lg:flex flex-col w-full justify-center self-start px-5 gap-y-2 mt-2"
     >
       <div class="flex items-center justify-between">
         <p class="font-semibold text-stone-200 text-[14px]">Episodes:</p>
@@ -98,7 +100,7 @@
   <!-- End Left Side -->
   <!-- Right Side -->
   <div
-    class="flex flex-col col-span-2 gap-y-5 w-full h-full p-3 overflow-y-auto"
+    class="flex flex-col col-span-2 gap-y-5 w-full h-full p-3 lg:overflow-y-auto"
   >
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-4xl font-black">
@@ -160,7 +162,7 @@
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
         @for (review of sortedReviews; track $index) {
         <div
-          class="min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100"
+          class="min-w-[300px] md:min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100"
         >
           <p
             class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-5xl rounded-bl-2xl"
@@ -168,7 +170,7 @@
             {{ review.score }}
           </p>
           <p
-            class="text-stone-100 tracking-widest text-left w-[70%] text-sm whitespace-break-spaces overflow-x-hidden h-[70%] overflow-y-auto"
+            class="text-stone-100 tracking-widest text-left w-[65%] md:w-[70%] text-sm overflow-x-hidden h-[70%] overflow-y-auto"
           >
             {{ review.review }}
           </p>
@@ -196,11 +198,13 @@
         @for (relations of relationsPrequel; track $index) { @for (entry of
         relations.entry; track $index) {
         <div
-          class="min-w-[300px] min-h-[120px] overflow-hidden border-2 border-pink-700 cursor-pointer flex flex-col gap-y-2 justify-center items-center rounded-3xl bg-stone-200"
+          class="min-w-[200px] md:min-w-[300px] min-h-[120px] p-2 overflow-hidden border-2 border-pink-700 cursor-pointer flex flex-col gap-y-2 justify-center items-center rounded-3xl bg-pink-700"
           [routerLink]="['/anime', entry.mal_id]"
         >
-          <p class="text-pink-600 text-sm">{{ relations.relation }}</p>
-          <p class="text-pink-600 uppercase font-black text-[15px]">
+          <p class="text-stone-900 text-sm">{{ relations.relation }}</p>
+          <p
+            class="text-stone-900 uppercase font-black text-[12px] md:text-[15px]"
+          >
             {{ entry.name.slice(0, 30) }}
           </p>
         </div>
