@@ -5,12 +5,13 @@ import { AnimeDataInfo } from '../../models/Anime';
 import { AnimeCharactersInfo } from '../../models/AnimeCharacters';
 import { AnimeReviewsData } from '../../models/AnimeReviews';
 import { AnimeRecommentationsInfo } from '../../models/AnimeRecommendations';
-import { forkJoin, of, catchError, delay, concatMap } from 'rxjs';
+import { of, catchError, delay, concatMap } from 'rxjs';
 import { LoadingComponent } from '../../components/utils/loading/loading.component';
 import { AnimeRelationsInfo } from '../../models/AnimeRelations';
+import { RatingCardComponent } from '../../components/rating-card/rating-card.component';
 @Component({
   selector: 'app-anime',
-  imports: [RouterLink, LoadingComponent],
+  imports: [RouterLink, LoadingComponent, RatingCardComponent],
   templateUrl: './anime.component.html',
   styleUrl: './anime.component.css',
 })

@@ -17,35 +17,15 @@
         {{ animeInfo!.anime!.score.toFixed(0) }}
       </p>
       @switch (animeInfo!.anime?.rating) { @case("G - All Ages"){
-      <p
-        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-      >
-        G
-      </p>
+      <app-rating-card type="everyone" rating="G" />
       } @case("PG - Children"){
-      <p
-        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-      >
-        PG
-      </p>
+      <app-rating-card type="everyone" rating="PG" />
       } @case ("PG-13 - Teens 13 or older") {
-      <p
-        class="absolute bottom-2 left-2 w-12 h-10 bg-green-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-      >
-        PG+
-      </p>
+      <app-rating-card type="everyone" rating="PG+" />
       } @case ("R - 17+ (violence & profanity)") {
-      <p
-        class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-      >
-        R-17
-      </p>
+      <app-rating-card type="adult" rating="R-17" />
       } @case ("R+ - Mild Nudity") {
-      <p
-        class="absolute bottom-2 left-2 w-12 h-10 bg-red-800 flex justify-center items-center rounded-full font-bold text-stone-100 border-stone-100 border-2 text-[16px]"
-      >
-        R
-      </p>
+      <app-rating-card type="adult" rating="R+" />
       } }
     </div>
     <div
@@ -113,7 +93,9 @@
     <!-- Plot-->
     <div class="space-y-1">
       <h1 class="text-pink-600 uppercase text-2xl font-semibold">Plot</h1>
-      <p class="text-stone-100 text-justify">{{ animeInfo.anime?.synopsis }}</p>
+      <p class="text-stone-100 text-justify text-sm lg:text-lg">
+        {{ animeInfo.anime?.synopsis }}
+      </p>
     </div>
     <!-- Characters -->
     @if (sortedCharacters && sortedCharacters.length > 0) {
@@ -162,10 +144,10 @@
       <div class="flex items-center gap-x-6 overflow-x-auto pr-4">
         @for (review of sortedReviews; track $index) {
         <div
-          class="min-w-[300px] md:min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100"
+          class="min-w-[250px] md:min-w-[400px] h-[200px] bg-pink-700 overflow-auto py-4 pl-3 rounded-2xl relative border-2 border-stone-100"
         >
           <p
-            class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-5xl rounded-bl-2xl"
+            class="absolute top-0 right-0 p-4 bg-stone-100 text-pink-700 font-black text-2xl md:text-5xl rounded-bl-2xl"
           >
             {{ review.score }}
           </p>
